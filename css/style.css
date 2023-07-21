@@ -1,0 +1,556 @@
+/*
+ ========================================================
+ * TODO: Change how the background-image of Main Section Show 
+ * TODO: Change the header nav how it is 
+ ========================================================
+ */
+
+/* General Rules */
+:root {
+  --main-black: rgb(42, 42, 42);
+  --sec-yellow: rgb(247, 188, 88);
+  --hover-yellow: rgb(229, 144, 70);
+  --tre-white: rgb(245, 245, 245);
+  --color-backg: #d2d2d2;
+
+  --trans: 0.3s;
+
+  --nav-height: 90px;
+
+  --sect-padd: 80px;
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  /* font-family: Arial, Helvetica, sans-serif; */
+  /* font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif; */
+  font-family: "Rubik", sans-serif;
+  overflow-x: hidden;
+}
+html {
+  scroll-behavior: smooth;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* `sm` applies to x-small devices (portrait phones, less than 576px) */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+/* `md` applies to small devices (landscape phones, less than 768px) */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+/* `lg` applies to medium devices (tablets, less than 992px) */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+/* speacial Text */
+.sp-header {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding-bottom: 35px;
+}
+.sp-header > h2 {
+  font-size: 28px;
+  color: var(--main-black);
+}
+.sp-header > p {
+  font-size: 15px;
+  color: #777;
+}
+/* End speatioal text */
+
+/* Header Section */
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  min-height: var(--nav-height);
+  align-items: center;
+  gap: 5px;
+  color: var(--main-black);
+  position: relative;
+}
+.header .container .logo {
+  font-size: 23px;
+}
+.header .container .nav {
+  display: flex;
+  gap: 5px;
+}
+.header .container .navIcone {
+  display: none;
+}
+.header .container .nav > li a {
+  display: flex;
+  min-height: var(--nav-height);
+  min-width: 97px;
+  justify-content: center;
+  align-items: center;
+  color: var(--main-black);
+  text-transform: uppercase;
+  position: relative;
+  transition: var(--trans);
+  letter-spacing: 0.7px;
+}
+.header .container .nav > li a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--sec-yellow);
+  width: 100%;
+  height: 0;
+  z-index: -1;
+  transition: var(--trans);
+}
+.header .container .nav > li a:is(:hover, :focus) {
+  color: var(--tre-white);
+}
+.header .container .nav > li a:is(:hover, :focus)::before {
+  height: 100%;
+}
+.header .container .num-phone {
+  font-weight: bold;
+}
+@media (max-width: 750px) {
+  .header .container .logo {
+    flex: 1;
+  }
+  .header .container .navIcone {
+    display: block;
+    cursor: pointer;
+    font-size: 19px;
+    padding-right: 10px;
+  }
+  .header .container .nav {
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--tre-white);
+    z-index: 999999;
+    gap: 0;
+    opacity: 0;
+    transition: 0.3s;
+  }
+  .header .container .nav li:not(:last-child) {
+    border-bottom: 1px solid #ddd;
+  }
+}
+
+/* Main Section */
+.main-section {
+  position: relative;
+  min-height: calc(100vh - var(--nav-height));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main-section::before {
+  content: "";
+  position: absolute;
+  background-image: url(../assets/mig.png);
+  width: 100%;
+  height: 100vh;
+  top: -90px;
+  left: 0;
+  z-index: -4;
+  background-size: cover;
+  background-position: center;
+}
+.main-section::after {
+  content: "HOME";
+  position: absolute;
+  font-size: 520px;
+  font-weight: bold;
+  top: 0;
+  left: -10%;
+  color: rgba(245, 245, 245, 0.25);
+  z-index: -4;
+}
+.main-section .container .main-box {
+  max-width: 550px;
+  text-transform: uppercase;
+}
+.main-section .container .main-box .title {
+  font-size: 70px;
+  font-weight: bold;
+  letter-spacing: 1.3px;
+  color: var(--main-black);
+  padding-bottom: 25px;
+}
+.main-section .container .main-box .title span {
+  display: inline-block;
+  position: relative;
+}
+.main-section .container .main-box .title span::before {
+  content: "";
+  width: 100%;
+  height: 50%;
+  bottom: 0;
+  left: 0;
+  background-color: var(--sec-yellow);
+  position: absolute;
+  z-index: -1;
+}
+.main-section .container .main-box .desc {
+  font-size: 20px;
+  letter-spacing: 1.4px;
+  padding-bottom: 25px;
+}
+.main-section .container .btn-act {
+  min-height: 50px;
+  min-width: 250px;
+  text-transform: uppercase;
+  background-color: var(--sec-yellow);
+  border: 0;
+  font-weight: bold;
+  color: var(--tre-white);
+  cursor: pointer;
+  letter-spacing: 1.3px;
+  transition: var(--trans);
+  border: 1px solid var(--main-black);
+}
+.main-section .container .btn-act:hover {
+  background-color: var(--hover-yellow);
+}
+@media (max-width: 750px) {
+  .main-section::after {
+    display: none;
+  }
+}
+
+/* About Section */
+.about-section {
+  padding-top: var(--sect-padd);
+  padding-bottom: var(--sect-padd);
+}
+.about-section .container .aboutSection-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  color: var(--main-black);
+}
+.about-section .container .aboutSection-body .history {
+  flex: 1;
+  flex-basis: 100%;
+}
+.about-section .container .aboutSection-body .history .historyText {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.about-section .container .aboutSection-body .history .historyText > h3 {
+  font-size: 25px;
+  padding-bottom: 10px;
+}
+.about-section .container .aboutSection-body .history .historyText > p {
+  color: #777;
+  font-size: 17px;
+  line-height: 1.4;
+}
+.about-section .container .aboutSection-body .history .btn-history {
+  margin-top: 30px;
+  height: 50px;
+  width: 200px;
+  background-color: var(--sec-yellow);
+  border: 0;
+  text-transform: uppercase;
+  color: var(--tre-white);
+  letter-spacing: 1.3px;
+  cursor: pointer;
+  transition: var(--trans);
+  border: 1px solid var(--main-black);
+}
+.about-section .container .aboutSection-body .history .btn-history:hover {
+  background-color: var(--hover-yellow);
+}
+.about-section .container .aboutSection-body .historyImg {
+  width: 600px;
+  border: 1px solid var(--main-black);
+  box-shadow: 5px 5px var(--sec-yellow);
+}
+@media (max-width: 750px) {
+  .about-section .container .aboutSection-body {
+    flex-wrap: wrap;
+  }
+}
+
+/* Services Section */
+.service-section {
+  background-color: var(--color-backg);
+  padding-top: var(--sect-padd);
+  padding-bottom: var(--sect-padd);
+}
+.service-section .container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.service-section .container .service-img {
+  position: relative;
+  border: 1px solid var(--main-black);
+}
+.service-section .container .service-img::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #777;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  transition: var(--trans);
+}
+.service-section .container .service-img:hover::before {
+  opacity: 0.7;
+}
+.service-section .container .service-img .set-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--main-black);
+  opacity: 0;
+  transition: var(--trans);
+}
+.service-section .container .service-img .set-text > p:first-child {
+  font-size: 15px;
+  font-weight: bold;
+}
+.service-section .container .service-img .set-text > p:first-child span {
+  color: var(--sec-yellow);
+}
+.service-section .container .service-img .set-text > h4 {
+  font-size: 18px;
+  font-weight: bold;
+}
+.service-section .container .service-img .set-text > p:last-child {
+  color: var(--tre-white);
+  line-height: 1.6;
+  font-size: 15px;
+}
+.service-section .container .service-img .set-text:hover {
+  opacity: 1;
+}
+@media (max-width: 750px) {
+  .service-section .container {
+    flex-wrap: wrap;
+  }
+}
+
+/* News Section */
+.news-section {
+  padding-top: var(--sect-padd);
+  padding-bottom: var(--sect-padd);
+}
+.news-section .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+.news-section .container .news-img {
+  position: relative;
+  border: 1px solid var(--main-black);
+  box-shadow: 3px 3px var(--sec-yellow);
+}
+.news-section .container .news-img::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.news-section .container .news-text {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  color: var(--main-black);
+}
+.news-section .container .news-text .nText > h3 {
+  text-transform: uppercase;
+  padding-bottom: 5px;
+}
+.news-section .container .news-text .nText > div {
+  font-size: 15px;
+  color: var(--sec-yellow);
+  font-weight: bold;
+  padding-bottom: 15px;
+}
+.news-section .container .news-text .nText > p {
+  padding-bottom: 10px;
+  line-height: 1.5;
+  color: #888;
+}
+.news-section .container .news-text .nText > button {
+  background-color: transparent;
+  border: 0;
+}
+.news-section .container .news-text .nText > button a {
+  background-color: transparent;
+  text-transform: uppercase;
+  color: var(--main-black);
+  font-weight: bold;
+  font-size: 15px;
+  transition: var(--trans);
+}
+.news-section .container .news-text .nText > button a:hover {
+  color: #777;
+}
+@media (max-width: 750px) {
+  .news-section .container {
+    flex-wrap: wrap;
+  }
+}
+
+/* Email Section */
+.email-section {
+  padding-top: var(--sect-padd);
+  padding-bottom: var(--sect-padd);
+  background-image: url(../assets/Home-decore_4.jpg);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+.email-section::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.email-section > form {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 10px;
+}
+.email-section > form input {
+  border: 0;
+}
+.email-section > form #email {
+  height: 40px;
+  width: 400px;
+  padding-left: 20px;
+  border: 1px solid var(--tre-white);
+  color: var(--main-black);
+  transition: var(--trans);
+}
+.email-section > form #email:is(:focus, :hover) {
+  outline: none;
+  border: 1px solid var(--sec-yellow);
+}
+.email-section > form #sub {
+  height: 40px;
+  width: 150px;
+  background-color: var(--sec-yellow);
+  color: var(--tre-white);
+  font-weight: bold;
+  cursor: pointer;
+  transition: var(--trans);
+}
+.email-section > form #sub:hover {
+  background-color: var(--hover-yellow);
+}
+
+/* Footer Section */
+.footer {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: var(--main-black);
+  color: var(--tre-white);
+}
+.footer .rows {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.footer .rows .row .title {
+  font-size: 19px;
+  font-weight: bold;
+  padding-bottom: 15px;
+  text-transform: uppercase;
+}
+.footer .rows .row > ul li span {
+  font-weight: bold;
+  color: var(--tre-white);
+}
+.footer .rows .row > ul .by-love span {
+  color: #888;
+  font-size: normal;
+  font-weight: normal;
+}
+.footer .rows .row > ul li {
+  font-size: 15px;
+  color: #888;
+  padding-bottom: 5px;
+}
+.footer .rows .row > ul li a {
+  color: #888;
+  display: block;
+  transition: var(--trans);
+}
+.footer .rows .row > ul li a:hover {
+  color: var(--tre-white);
+}
+.footer .rows .row .goUp {
+  cursor: pointer;
+  color: #888;
+  transition: var(--trans);
+}
+.footer .rows .row .goUp > i {
+  font-size: 13px;
+}
+.footer .rows .row .goUp:hover {
+  color: var(--tre-white);
+}
+@media (max-width: 750px) {
+  .footer .rows {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+}
